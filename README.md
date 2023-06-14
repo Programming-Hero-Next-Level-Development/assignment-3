@@ -117,8 +117,8 @@ Error Response Object Should include the following properties:
 
 - weight: The weight of the cow in kilograms.
 - label: The enums of the label.
-  - For sale
-  - Sold out
+  - for sale
+  - sold out
 
 - category: An enum representing the category of the cow.
   - Dairy = "Dairy",  // Represents cows bred primarily for milk production.
