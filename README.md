@@ -29,24 +29,25 @@ Error Response Object Should include the following properties:
       }
    ]
 ```
-- stack: Do this for both production and developmentb to evaluale your assignment
+- stack: " " // Do this for both production and development to evaluate your assignment
                   
-                        ]
+
 ### Model:
 
-### User:
+### User Model:
 - _id
 - phoneNumber
-- role   → enums → [‘seller’,’buyer’]
+- role   → enums → [‘seller’,’ buyer’]
 - password 
 - name	
 - firstName
 - lastName
 - address
-- amount → Savings for buying cow
+- amount → Savings for buying the cow
+- createdAt
+- updatedAt
 
-
-### Cow:
+### Cow Model:
 
 -name: The name of the cow.
 -age: The age of the cow in years.
@@ -80,24 +81,22 @@ Error Response Object Should include the following properties:
   -Beef = "Beef", // Represents cows bred primarily for meat production.
   -DualPurpose = "Dual Purpose", // Represents cows bred for both milk and meat production.
 
--seller: A reference ID that identifies the seller of the cow, allowing for tracking and association with the seller's information .
+-seller: A reference ID that identifies the seller of the cow, allowing for tracking and association with the seller's information.
 
 
-### Implement Create, Read, Update Operations for Users Listing
+### Implement Create, Read, and Update Operations for Users Listing
 
 ### Create a new User 
 
  Route:  /api/v1/auth/signup (POST)
  Request body:
  {
-  "_id":"ObjectId(“6473c6a50c56d0d40b9bb6a3)",  
-  "phoneNumber":"01711111111",
   "password":"abrakadabra",
-  "role":"buyer",
-  "address":"Chattogram",
-  "amount":30000  // saved money to buy cow
+  "role": "buyer",
+  "phoneNumber":"01711111111",
+  "address": "Chattogram",
+  "amount":30000  // saved money to buy the cow
 }
-         
  Response: The newly created user object.
  Response Sample Pattern:
 
@@ -128,7 +127,7 @@ Error Response Object Should include the following properties:
       data: [{}] , 
   }
 
-### Retrieve paginated and filtered cow listings: ( You do not need to implement pagination like we implemented , you can do as you want )
+### Retrieve paginated and filtered cow listings: ( You do not need to implement pagination as we implemented, you can do as you want )
 
 Route:  /api/v1/cows
 Query parameters:
@@ -138,8 +137,8 @@ Query parameters:
           sortOrder: The order of sorting, either 'asc' or 'desc' (e.g., ?sortOrder=asc).
           minPrice: The minimum price for filtering (e.g., ?minPrice=1000).
           maxPrice: The maximum price for filtering (e.g., ?maxPrice=5000).
-l         ocation: The location for filtering (e.g., ?location=chattogram).
-          searchTerm: The search query string for searching cows (e.g., ?query=Dhaka). (Search Fields should be location, breed, category) 
+          location: The location for filtering (e.g., ?location=chattogram).
+          searchTerm: The search query string for searching cows (e.g., ?query=Dhaka). (Search Fields should be location, breed, and category) 
 
 Response: An array of cow listing objects that match the provided filters, limited to the specified page and limit.
 
@@ -174,7 +173,7 @@ Response Sample Pattern:
 
 ### Update a Single User
 
- Route:  /api/v1/users/"id (PATCH)
+ Route:  /api/v1/users/:id (PATCH)
  Request Param: :id
  Response: 'User updated successfully;
  Response Sample Pattern:
@@ -182,14 +181,14 @@ Response Sample Pattern:
   {
       success: true, 
       statusCode:400 ,
-      message:'Uers retrieved successfully',
+      message:'Uer updated successfully',
       data: {} , 
   }
   
   
   ### Delete a User
 
- Route:  /api/v1/users/"id (PATCH)
+ Route:  /api/v1/users/:id (PATCH)
  Request Param: :id
  Response: 'User deleted successfully;
  Response Sample Pattern:
@@ -202,7 +201,7 @@ Response Sample Pattern:
   }
 
 
-### Implement Create, Read, Update , Delete Operations for COW listings.
+### Implement Create, Read, Update, and Delete Operations for COW listings.
 
 
 
@@ -226,7 +225,7 @@ Response Sample Pattern:
  {
       success: true, 
       statusCode:200 ,
-      message:'Users created successfully',
+      message:'Cow created successfully',
       data: {} , 
   }
 
@@ -242,7 +241,7 @@ Response Sample Pattern:
   {
       success: true, 
       statusCode:200 ,
-      message:'cows retrieved successfully',
+      message:'Cows retrieved successfully',
       meta: {
         page: 3,
         limit: 10,
@@ -275,7 +274,7 @@ Response Sample Pattern:
   {
       success: true, 
       statusCode:400 ,
-      message:'Cow retrieved successfully',
+      message:'Cow updated successfully',
       data: {} , 
   }
   
@@ -295,9 +294,7 @@ Response Sample Pattern:
   }
 
      
-
-
-### Bonus :  Implement Create, Read Operations for Order History Listings.
+### Bonus:  Implement Create, Read Operations for Order History Listings.
 
 Route:  /api/v1/orders  (POST)
 Request body:{
@@ -308,13 +305,7 @@ Request body:{
 }
 Response: The  newly created order object.
 
-
-
-Route:  /api/v1/orders  (GET)
-Request body:
-Response: The orders array of object.
-
-Implement a transactional operation for buying a cow.  When a user requests to buy a cow, simulate a transaction process without involving an actual payment gateway.Upon successful transaction simulation, update the cow's status as sold, transfer money from buyer to seller account, and provide appropriate response messages.
+implement a transactional operation for buying a cow.  When a user requests to buy a cow, simulate a transaction process without involving an actual payment gateway. Upon successful transaction simulation, update the cow's status as sold, transfer money from buyer to seller account, and provide appropriate response messages.
 
 Steps:
 -The user initiates a purchase order using the "api/v1/orders" POST API.
@@ -332,9 +323,13 @@ Steps:
 
 
 
+Route:  /api/v1/orders  (GET)
+Request body:
+Response: The orders array of object.
+
 
 ### Sample Data: (User)
-
+```json
 {
   "_id":"ObjectId(“6473c6a50c56d0d40b9bb6a3)",  
   "password":"abrakadabra",
@@ -347,6 +342,23 @@ Steps:
   "address":"Chattogram",
   "amount":30000  
 }
+```
 
+### Sample Data: (Cow)
+
+```json
+{
+  "name": "Bella",
+  "age": 4,
+  "price": 5000,
+  "location": "Dhaka",
+  "breed": "Brahman",
+  "weight": 400,
+  "label": "For sale",
+  "category": "Beef",
+  "seller": "609c17fc1281bb001f523456"
+}
+
+```
 
 
