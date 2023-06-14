@@ -22,7 +22,9 @@ Error Response Object Should include the following properties:
 - message → Error Type → Validation Error, Cast Error, Duplicate Errort
 - errorMessages 
 - stack
-  
+
+### Sample Error Respobse
+
 ```json
    {
     "success": false,
