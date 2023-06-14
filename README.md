@@ -371,7 +371,7 @@ Response Sample Pattern:
 
 ### Update a Single Cow
 
- Route:  /api/v1/cow/:id (PATCH)
+ Route:  /api/v1/cows/:id (PATCH)
  
  Request Param: :id
  
@@ -458,9 +458,9 @@ Response Sample Pattern:
   }
 ```
 
-
-
-
+### Deadline:
+- 60 Marks 3 Days (Till  Sunday 11.59 AM)
+- 50 Marks 1 Day (Till Monday 11.59 AM)
 
 
 
