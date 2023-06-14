@@ -23,7 +23,7 @@ Error Response Object Should include the following properties:
 - errorMessages 
 - stack
 
-### Sample Error Respobse
+### Sample Error Response
 
 ```json
    {
