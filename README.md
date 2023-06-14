@@ -1,6 +1,6 @@
-# Assignment No : 03
+### Assignment No: 03
 
-### Assignment Requirements: Online Cow Selling Backend for Eid Ul Adha
+### Assignment Name: Online Cow Selling Backend for Eid Ul Adha
 
 
 You have been assigned the task of building the backend for an Online Cow Selling platform in preparation for Eid Ul Adha. The main focus of this assignment is to implement error handling, CRUD operations, pagination and filtering, transactions (including a simple transaction without a payment gateway), and additional routes as deemed necessary. 
