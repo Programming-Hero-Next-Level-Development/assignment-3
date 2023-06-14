@@ -66,39 +66,39 @@ Error Response Object Should include the following properties:
 
 ### Cow Model:
 
--name: The name of the cow.
--age: The age of the cow in years.
--price: The price of the cow.
--location: Enums of location
-  -Dhaka
-  -Chattogram
-  -Barishal
-  -Rajshahi
-  -Sylhet
-  -Comilla
-  -Rangpur
-  -Mymensingh
+- name: The name of the cow.
+- age: The age of the cow in years.
+- price: The price of the cow.
+- location: Enums of location
+  - Dhaka
+  - Chattogram
+  - Barishal
+  - Rajshahi
+  - Sylhet
+  - Comilla
+  - Rangpur
+  - Mymensingh
 
--breed: The breed of the cow → embedded 
-  -Brahman 
-  -Nellore 
-  -Sahiwal 
-  -Gir 
-  -Indigenous 
-  -Tharparkar 
-  -Kankrej 
+- breed: The breed of the cow → embedded 
+  - Brahman 
+  - Nellore 
+  - Sahiwal 
+  - Gir 
+  - Indigenous 
+  - Tharparkar 
+  - Kankrej 
 
--weight: The weight of the cow in kilograms.
--label: The enums of the label.
-  -For sale
-  -Sold out
+- weight: The weight of the cow in kilograms.
+- label: The enums of the label.
+  - For sale
+  - Sold out
 
--category: An enum representing the category of the cow.
-  -Dairy = "Dairy",  // Represents cows bred primarily for milk production.
-  -Beef = "Beef", // Represents cows bred primarily for meat production.
-  -DualPurpose = "Dual Purpose", // Represents cows bred for both milk and meat production.
+- category: An enum representing the category of the cow.
+  - Dairy = "Dairy",  // Represents cows bred primarily for milk production.
+  - Beef = "Beef", // Represents cows bred primarily for meat production.
+  - DualPurpose = "Dual Purpose", // Represents cows bred for both milk and meat production.
 
--seller: A reference ID that identifies the seller of the cow, allowing for tracking and association with the seller's information.
+- seller: A reference ID that identifies the seller of the cow, allowing for tracking and association with the seller's information.
 
 ### Sample Data: (Cow)
 
