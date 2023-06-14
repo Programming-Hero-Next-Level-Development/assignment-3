@@ -275,14 +275,14 @@ Response Sample Pattern:
  Response Sample Pattern:
 ```json
   {
-      success: true, 
-      statusCode:200 ,
-      message:'Cows retrieved successfully',
-      meta: {
-        page: 3,
-        limit: 10,
+      "success": true, 
+      "statusCode":200,
+      "message": 'Cows retrieved successfully',
+      "meta": {
+        "page": 3,
+        "limit": 10,
         }
-      data: [{}] , 
+      data: [{...},{...}] , 
   }
   ```
 
@@ -293,14 +293,13 @@ Route:  /api/v1/cows/:id (GET)
 Request Param: :id
 Response: The cow object.
 Response Sample Pattern:
-``json
+```json
   {
-      success: true,  
-      statusCode:200 ,
-      message:'Cow retrieved successfully',
-      data: {} , 
+      "success": true, 
+      "statusCode":200,
+      "message": "Cow retieved successfully",
+      "data": {}, 
   }
-```
 ### Update a Single Cow
 
  Route:  /api/v1/cow/:id (PATCH)
@@ -309,12 +308,11 @@ Response Sample Pattern:
  Response Sample Pattern:
 ```json
   {
-      success: true, 
-      statusCode:400 ,
-      message:'Cow updated successfully',
-      data: {} , 
+      "success": true, 
+      "statusCode":200,
+      "message": "Cow updated successfully",
+      "data": {...}, 
   }
-  ```
   
   ### Delete a Cow
 
@@ -327,7 +325,7 @@ Response Sample Pattern:
       "success": true, 
       "statusCode":200,
       "message": "Cow deleted successfully",
-      "data": {} , 
+      "data": {}, 
   }
 ```
      
@@ -348,25 +346,32 @@ Response: The  newly created order object.
 implement a transactional operation for buying a cow.  When a user requests to buy a cow, simulate a transaction process without involving an actual payment gateway. Upon successful transaction simulation, update the cow's status as sold, transfer money from buyer to seller account, and provide appropriate response messages.
 
 Steps:
--The user initiates a purchase order using the "api/v1/orders" POST API.
--Check that the user has enough money in their account to buy the cow.
--If the user needs more money, show them an error message.
--If the user has enough money, begin the buying process (start a transaction). This involves a few steps:
--Change the cow's label from 'for sale' to 'sold out'.
--Deduct the cost of the cow from the buyer's account
--Put the same amount of  cost into the seller's account
--Make an entry in the orders collection
--Commit transaction
--End transaction session
--If any error happens abort the transaction 
+- The user initiates a purchase order using the "api/v1/orders" POST API.
+- Check that the user has enough money in their account to buy the cow.
+- If the user needs more money, show them an error message.
+- If the user has enough money, begin the buying process (start a transaction). This involves a few steps:
+- Change the cow's label from 'for sale' to 'sold out'.
+- Deduct the cost of the cow from the buyer's account
+- Put the same amount of  cost into the seller's account
+- Make an entry in the orders collection
+- Commit transaction
+- End transaction session
+- If any error happens abort the transaction 
 
 
 
 Route:  /api/v1/orders  (GET)
 Request body:
 Response: The ordered array of objects.
-
-
+Response Sample Pattern:
+```json
+  {
+      "success": true, 
+      "statusCode":200,
+      "message": "Cow deleted successfully",
+      "data": {}, 
+  }
+```
 
 
 
