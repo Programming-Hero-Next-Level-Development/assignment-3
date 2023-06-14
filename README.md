@@ -196,7 +196,7 @@ Error Response Object Should include the following properties:
         "page": 3,
         "limit": 10,
         }
-      "data": [{}], 
+      "data": [{},{}], 
   }
 ```
 
@@ -241,7 +241,7 @@ Response Sample Pattern:
   
   ### Delete a User
 
- Route:  /api/v1/users/:id (PATCH)
+ Route:  /api/v1/users/:id ( DELETE)
  
  Request Param: :id
  
@@ -302,7 +302,7 @@ Request body:
   {
       "success": true, 
       "statusCode":200,
-      "message": 'Cows retrieved successfully',
+      "message": "Cows retrieved successfully",
       "meta": {
         "page": 3,
         "limit": 10,
@@ -343,8 +343,6 @@ Response Sample Pattern:
 ```
 
 
-
-
 ### Get a Single Cow
 
 Route:  /api/v1/cows/:id (GET)
@@ -362,6 +360,8 @@ Response Sample Pattern:
       "message": "Cow retrieved successfully",
       "data": {}, 
   }
+```
+
 
 ### Update a Single Cow
 
@@ -380,8 +380,9 @@ Response Sample Pattern:
       "message": "Cow updated successfully",
       "data": {}, 
   }
-  
-  ### Delete a Cow
+
+```  
+### Delete a Cow
 
  Route:  /api/v1/cows/:id ( DELETE)
  
@@ -390,6 +391,7 @@ Response Sample Pattern:
  Response: 'Cows deleted successfully;
  
  Response Sample Pattern:
+
 ```json
   {
       "success": true, 
@@ -449,6 +451,48 @@ Response Sample Pattern:
       "data": {}, 
   }
 ```
+
+
+
+
+
+
+
+### What to submit
+1. Your Github Link
+2. Deployed Live Link (Vercel / Railway / Heroku or any other platform)
+3. Must include all the routes into Readme.Md file. You can follow the pattern given below to enlist your application routes:
+
+   #### User
+   - api/v1/users (POST)
+   - api/v1/users (GET)
+   - api/v1/users/6177a5b87d32123f08d2f5d4 (Single GET) Include an id that is saved in your database
+   - api/v1/users/6177a5b87d32123f08d2f5d4 (PATCH)
+   - api/v1/users/6177a5b87d32123f08d2f5d4 (DElETE) Include an id that is saved in your database
+
+
+   #### Cows
+   - api/v1/cows (POST)
+   - api/v1/cows (GET)
+   - api/v1/cows/6177a5b87d32123f08d2f5d4 (Single GET) Include an id that is saved in your database
+   - api/v1/cows/6177a5b87d32123f08d2f5d4 (PATCH)
+   - api/v1/cows/6177a5b87d32123f08d2f5d4 (DElETE) Include an id that is saved in your database
+
+   ### Pagination and Filtering routes of Cows
+
+   - api/v1/cows?pag=1&limit=10
+   - api/v1/cows?sortBy=price&price=asc
+   - api/v1/cows?minPrice=20000&maxPrice=70000
+   - api/v1/cows?location=Chattogram)
+   - api/v1/cows?searchTerm=Cha
+     
+  
+   #### User
+   - api/v1/orders (POST)
+   - api/v1/orders (GET)
+   
+   
+   
 
 
 
