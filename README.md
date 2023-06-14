@@ -21,7 +21,8 @@ Error Response Object Should include the following properties:
 - success  →  false
 - message → Error Type 
 - errorMessage : 
-```[
+```json
+   [
      {
        path: '',
        message:''
