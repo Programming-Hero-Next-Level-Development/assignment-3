@@ -113,7 +113,7 @@ Error Response Object Should include the following properties:
 
  Route:  /api/v1/users (GET)
  Request body:
- Response: The users array of objects.
+ Response: The user's array of objects.
  Response Sample Pattern:
 
   {
@@ -122,7 +122,7 @@ Error Response Object Should include the following properties:
       message:'Users retrieved successfully',
       meta: {
         page: 3,
-        limit: 10,
+        limit 10,
         }
       data: [{}] , 
   }
@@ -131,14 +131,14 @@ Error Response Object Should include the following properties:
 
 Route:  /api/v1/cows
 Query parameters:
-         - page: The page number for pagination (e.g., ?page=1).
-         - limit: The number of cow listings per page (e.g., ?limit=10).
-         - sortBy: The field to sort the cow listings (e.g., ?sortBy=price).
-         - sortOrder: The order of sorting, either 'asc' or 'desc' (e.g., ?sortOrder=asc).
-         - minPrice: The minimum price for filtering (e.g., ?minPrice=1000).
-         - maxPrice: The maximum price for filtering (e.g., ?maxPrice=5000).
-         - location: The location for filtering (e.g., ?location=chattogram).
-         - searchTerm: The search query string for searching cows (e.g., ?query=Dhaka). (Search Fields should be location, breed, and category) 
+- page: The page number for pagination (e.g., ?page=1).
+- limit: The number of cow listings per page (e.g., ?limit=10).
+- sortBy: The field to sort the cow listings (e.g., ?sortBy=price).
+- sortOrder: The order of sorting, either 'asc' or 'desc' (e.g., ?sortOrder=asc).
+- minPrice: The minimum price for filtering (e.g., ?minPrice=1000).
+- maxPrice: The maximum price for filtering (e.g., ?maxPrice=5000).
+- location: The location for filtering (e.g., ?location=chattogram).
+- searchTerm: The search query string for searching cows (e.g., ?query=Dhaka). (Search Fields should be location, breed, and category) 
 
 Response: An array of cow listing objects that match the provided filters, limited to the specified page and limit.
 
