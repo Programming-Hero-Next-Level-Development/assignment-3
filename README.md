@@ -156,14 +156,14 @@ Error Response Object Should include the following properties:
  Response Sample Pattern:
 ```json
   {
-      success: true, 
-      statusCode:200 ,
-      message:'Users retrieved successfully',
-      meta: {
-        page: 3,
-        limit 10,
+      "success": true, 
+      "statusCode":200 ,
+      "message":"Users retrieved successfully",
+      "meta: {
+        "page": 3,
+        "limit": 10,
         }
-      data: [{}] , 
+      "data": [{}] , 
   }
 ```
 ### Retrieve paginated and filtered cow listings: ( You do not need to implement pagination as we implemented, you can do as you want )
@@ -185,14 +185,14 @@ Response: An array of cow listing objects that match the provided filters, limit
 Response Sample Pattern:
 ```json
   {
-      success: true, 
-      statusCode:200 ,
-      message:'Users retrieved successfully',
-      meta: {
-        page: 3,
-        limit: 10,
+      "success": true, 
+      "statusCode":200 ,
+      "message":'Users retrieved successfully',
+      "meta": {
+        "page": 3,
+        "limit": 10,
         }
-      data: [{}] , 
+      "data: [{},{}], 
   }
 ```
 
@@ -205,11 +205,12 @@ Response: The user object.
 Response Sample Pattern:
 ```json
   {
-      success: true,  
-      statusCode:200 ,
-      message:'User retrieved successfully',
-      data: {} , 
+      "success": true, 
+      "statusCode":400 ,
+      "message":'Uer updated successfully',
+      "data": {}, 
   }
+  ```
 ```
 ### Update a Single User
 
@@ -219,10 +220,10 @@ Response Sample Pattern:
  Response Sample Pattern:
 ```json
   {
-      success: true, 
-      statusCode:400 ,
-      message:'Uer updated successfully',
-      data: {} , 
+      "success": true, 
+      "statusCode":400 ,
+      "message":"User updated successfully",
+      "data": {}, 
   }
   ```
   
@@ -234,10 +235,10 @@ Response Sample Pattern:
  Response Sample Pattern:
 ```json
   {
-      success: true, 
-      statusCode:200 ,
-      message:'Uers deleted successfully',
-      data: {} , 
+      "success": true, 
+      "statusCode":200 ,
+      "message":"Uers deleted successfully",
+      "data": {}, 
   }
 ```
 
@@ -260,10 +261,10 @@ Response Sample Pattern:
  Response Sample Pattern:
 ```json
  {
-      success: true, 
-      statusCode:200 ,
-      message:'Cow created successfully',
-      data: {} , 
+      "success": true, 
+      "statusCode":200 ,
+      "message":"Cow created successfully",
+      "data": {} , 
   }
 ```
            
@@ -282,7 +283,7 @@ Response Sample Pattern:
         "page": 3,
         "limit": 10,
         }
-      data: [{...},{...}] , 
+      data: [{},{}] , 
   }
   ```
 
@@ -297,7 +298,7 @@ Response Sample Pattern:
   {
       "success": true, 
       "statusCode":200,
-      "message": "Cow retieved successfully",
+      "message": "Cow retrieved successfully",
       "data": {}, 
   }
 ### Update a Single Cow
@@ -311,7 +312,7 @@ Response Sample Pattern:
       "success": true, 
       "statusCode":200,
       "message": "Cow updated successfully",
-      "data": {...}, 
+      "data": {}, 
   }
   
   ### Delete a Cow
