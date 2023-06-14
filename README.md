@@ -20,13 +20,14 @@ Use global error handling middleware to catch and handle errors, providing appro
 Error Response Object Should include the following properties:
 - success  →  false
 - message → Error Type 
-- errorMessage : ```[
-          {
-            path: '',
-            message:''
-          }
-         ]
-     ```
+- errorMessage : 
+```[
+     {
+       path: '',
+       message:''
+      }
+   ]
+```
 - stack: "" // Do this for both production and developmentb to evaluale your assignment
                   
                         ]
