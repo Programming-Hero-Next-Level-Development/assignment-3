@@ -7,9 +7,9 @@ You have been assigned the task of building the backend for an Online Cow Sellin
 
 ### Technology Stack:
 
--Use TypeScript as the programming language.
--Use Express.js as the web framework.
--Use Mongoose as the Object Data Modeling (ODM) and validation library for MongoDB.
+- Use TypeScript as the programming language.
+- Use Express.js as the web framework.
+- Use Mongoose as the Object Data Modeling (ODM) and validation library for MongoDB.
 
 
 ### Error Handling:
