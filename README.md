@@ -140,10 +140,10 @@ Error Response Object Should include the following properties:
  Response Sample Pattern:
 ```json
  {
-      success: true, 
-      statusCode:200 ,
-      message:'Users created successfully',
-      data: {} , 
+      "success": true, 
+      "statusCode":200 ,
+      "message":'Users created successfully',
+      "data": {} , 
   }
 ```
 
