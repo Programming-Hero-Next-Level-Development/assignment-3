@@ -268,11 +268,17 @@ Request body:
 
 ```json
  {
-  "_id":"ObjectId(“6473c6a50c56d0d40b9bb6a3)",  
-  "name": " Cow",
-  "age": 3,
-  "price": 5000
+  "name": "Bella",
+  "age": 4,
+  "price": 5000,
+  "location": "Dhaka",
+  "breed": "Brahman",
+  "weight": 400,
+  "label": "for sale",
+  "category": "Beef",
+  "seller": "609c17fc1281bb001f523456"
 }
+
 ```
  
  Response: The newly created cow object.
