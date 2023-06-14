@@ -25,7 +25,7 @@ Error Response Object Should include the following properties:
             path: '',
             message:''
           }
-        ]\
+        ]
 - stack: '' → Do this for both production and developmentb to evaluale your assignment
                   
                         ]
