@@ -324,10 +324,10 @@ Response Sample Pattern:
  Response Sample Pattern:
 ```json
   {
-      success: true, 
-      statusCode:200 ,
-      message:'Cow deleted successfully',
-      data: {} , 
+      "success": true, 
+      "statusCode":200,
+      "message": "Cow deleted successfully",
+      "data": {} , 
   }
 ```
      
@@ -362,10 +362,9 @@ Steps:
 
 
 
-
 Route:  /api/v1/orders  (GET)
 Request body:
-Response: The orders array of object.
+Response: The ordered array of objects.
 
 
 
