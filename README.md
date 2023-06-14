@@ -15,7 +15,7 @@ You have been assigned the task of building the backend for an Online Cow Sellin
 ### Error Handling:
 
 Implement proper error handling throughout the application.
-Use middleware to catch and handle errors, providing appropriate error responses with status codes and error messages.
+Use global error handling middleware to catch and handle errors, providing appropriate error responses with status codes and error messages.
 
 Error Response Object Should include the following properties:
 - success  →  false
