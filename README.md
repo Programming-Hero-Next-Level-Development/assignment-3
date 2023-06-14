@@ -247,33 +247,41 @@ Response Sample Pattern:
 ### Create a New Cow
 
  Route:  /api/v1/cows (POST)
- Request body:
+
+Request body:
+
 ```json
  {
   "_id":"ObjectId(“6473c6a50c56d0d40b9bb6a3)",  
   "name": " Cow",
   "age": 3,
-  "price": 5000,
-  ..............
+  "price": 5000
 }
 ```
+ 
  Response: The newly created cow object.
+
  Response Sample Pattern:
+
 ```json
  {
       "success": true, 
-      "statusCode":200 ,
-      "message":"Cow created successfully",
-      "data": {} , 
+      "statusCode":200,
+      "message": "Cow created successfully",
+      "data": {}, 
   }
 ```
            
 ### Get All Cows
 
  Route:  /api/v1/cows (GET)
+
  Request body:
+
  Response: The cows array of objects.
+
  Response Sample Pattern:
+
 ```json
   {
       "success": true, 
@@ -283,7 +291,7 @@ Response Sample Pattern:
         "page": 3,
         "limit": 10,
         }
-      data: [{},{}] , 
+      "data": [{},{}] , 
   }
   ```
 
@@ -291,9 +299,13 @@ Response Sample Pattern:
 ### Get a Single Cow
 
 Route:  /api/v1/cows/:id (GET)
+
 Request Param: :id
+
 Response: The cow object.
+
 Response Sample Pattern:
+
 ```json
   {
       "success": true, 
@@ -301,12 +313,17 @@ Response Sample Pattern:
       "message": "Cow retrieved successfully",
       "data": {}, 
   }
+
 ### Update a Single Cow
 
  Route:  /api/v1/cow/:id (PATCH)
+ 
  Request Param: :id
- Response: 'Cow updated successfully;
+ 
+ Response: "Cow updated successfully";
+
  Response Sample Pattern:
+
 ```json
   {
       "success": true, 
@@ -318,8 +335,11 @@ Response Sample Pattern:
   ### Delete a Cow
 
  Route:  /api/v1/cows/:id (PATCH)
+ 
  Request Param: :id
+ 
  Response: 'Cows deleted successfully;
+ 
  Response Sample Pattern:
 ```json
   {
@@ -333,7 +353,9 @@ Response Sample Pattern:
 ### Bonus:  Implement Create, Read Operations for Order History Listings.
 
 Route:  /api/v1/orders  (POST)
+
 Request body:
+
 ```json
 {
 
@@ -347,6 +369,7 @@ Response: The  newly created order object.
 implement a transactional operation for buying a cow.  When a user requests to buy a cow, simulate a transaction process without involving an actual payment gateway. Upon successful transaction simulation, update the cow's status as sold, transfer money from buyer to seller account, and provide appropriate response messages.
 
 Steps:
+
 - The user initiates a purchase order using the "api/v1/orders" POST API.
 - Check that the user has enough money in their account to buy the cow.
 - If the user needs more money, show them an error message.
@@ -362,9 +385,13 @@ Steps:
 
 
 Route:  /api/v1/orders  (GET)
+
 Request body:
+
 Response: The ordered array of objects.
+
 Response Sample Pattern:
+
 ```json
   {
       "success": true, 
