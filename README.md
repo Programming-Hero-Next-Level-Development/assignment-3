@@ -55,8 +55,8 @@ Error Response Object Should include the following properties:
   "password":"abrakadabra",
   "role":"buyer",
    "name":{
-      firstName:"Mr. Babull"
-      latName:"Bro"
+      "firstName":"Mr. Babull"
+      "latName":"Bro"
     },
   "phoneNumber":"01711111111",
   "address":"Chattogram",
@@ -112,7 +112,7 @@ Error Response Object Should include the following properties:
   "weight": 400,
   "label": "For sale",
   "category": "Beef",
-  "seller": "609c17fc1281bb001f523456"
+  "seller": "ObjectId(609c17fc1281bb001f523456)"
 }
 
 ```
