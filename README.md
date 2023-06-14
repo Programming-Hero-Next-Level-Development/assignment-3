@@ -48,8 +48,8 @@ Error Response Object Should include the following properties:
 - role   → enums → [‘seller’,’ buyer’]
 - password 
 - name	
-- firstName
-- lastName
+   - firstName
+   - lastName
 - address
 - budget → Savings for buying the cow
 - income
