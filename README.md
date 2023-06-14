@@ -137,7 +137,7 @@ Error Response Object Should include the following properties:
   "location": "Dhaka",
   "breed": "Brahman",
   "weight": 400,
-  "label": "For sale",
+  "label": "for sale",
   "category": "Beef",
   "seller": "ObjectId(609c17fc1281bb001f523456)"
 }
