@@ -25,8 +25,8 @@ Error Response Object Should include the following properties:
             path: '',
             message:''
           }
-        ]
--stack: '' → Do this for both production and developmentb to evaluale your assignment
+        ]\
+- stack: '' → Do this for both production and developmentb to evaluale your assignment
                   
                         ]
 ### Model:
@@ -124,6 +124,35 @@ Error Response Object Should include the following properties:
         }
       data: [{}] , 
   }
+
+### Retrieve paginated and filtered cow listings: ( You do not need to implement pagination like we implemented , you can do as you want )
+
+Route:  /api/v1/cows
+Query parameters:
+          page: The page number for pagination (e.g., ?page=1).
+          limit: The number of cow listings per page (e.g., ?limit=10).
+          sortBy: The field to sort the cow listings (e.g., ?sortBy=price).
+          sortOrder: The order of sorting, either 'asc' or 'desc' (e.g., ?sortOrder=asc).
+          minPrice: The minimum price for filtering (e.g., ?minPrice=1000).
+          maxPrice: The maximum price for filtering (e.g., ?maxPrice=5000).
+l         ocation: The location for filtering (e.g., ?location=chattogram).
+          searchTerm: The search query string for searching cows (e.g., ?query=Dhaka). (Search Fields should be location, breed, category) 
+
+Response: An array of cow listing objects that match the provided filters, limited to the specified page and limit.
+
+Response Sample Pattern:
+
+  {
+      success: true, 
+      statusCode:200 ,
+      message:'Users retrieved successfully',
+      meta: {
+        page: 3,
+        limit: 10,
+        }
+      data: [{}] , 
+  }
+
 
 
 ### Get a Single User
