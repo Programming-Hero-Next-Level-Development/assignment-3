@@ -316,7 +316,7 @@ Request body:
 
 Route:  /api/v1/cows?
 
-Query parameters:
+Query parameters:  (Case Insensitive)
 - page: The page number for pagination (e.g., ?page=1).
 - limit: The number of cow listings per page (e.g., ?limit=10).
 - sortBy: The field to sort the cow listings (e.g., ?sortBy=price).
