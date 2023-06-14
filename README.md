@@ -19,7 +19,7 @@ Use global error handling middleware to catch and handle errors, providing appro
 
 Error Response Object Should include the following properties:
 - success  →  false
-- message → Error Type → Validation Error, Cast Error, Duplicate Errort
+- message → Error Type → Validation Error, Cast Error, Duplicate Entry
 - errorMessages 
 - stack
 
