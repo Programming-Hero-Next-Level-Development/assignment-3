@@ -19,17 +19,23 @@ Use global error handling middleware to catch and handle errors, providing appro
 
 Error Response Object Should include the following properties:
 - success  →  false
-- message → Error Type 
-- errorMessages : 
+- message → Error Type → Validation Error, Cast Error, Duplicate Errort
+- errorMessages 
+- stack
+  
 ```json
-   [
-     {
-       "path": "",
-       "message": ""
-      }
-   ]
+   {
+    "success": false,
+    "message": "E11000 duplicate key error collection: univerity-management.students index: email_1 dup key: { email: \"user2@gmail.com\" }",
+    "errorMessages": [
+        {
+            "path": "",
+            "message": "E11000 duplicate key error collection: univerity-management.students index: email_1 dup key: { email: \"user2@gmail.com\" }"
+        }
+    ],
+    "stack": "MongoServerError: E11000 duplicate key error collection: univerity-management.students index: email_1 dup key: { email: \"user2@gmail.com\" }\n    at H:\\next-level-development\\university-management-auth-service\\node_modules\\mongodb\\src\\operations\\insert.ts:85:25\n    at H:\\next-level-development\\university-management-auth-service\\node_modules\\mongodb\\src\\cmap\\connection_pool.ts:574:11\n    at H:\\next-level-development\\university-writeOrBuffer (node:internal/streams/writable:391:12)"
+}
 ```
-- stack: " " // Do this for both production and development to evaluate your assignment
                   
 
 ### Model:
@@ -43,26 +49,44 @@ Error Response Object Should include the following properties:
 - firstName
 - lastName
 - address
-- amount → Savings for buying the cow
+- budget → Savings for buying the cow
+- income
 - createdAt
 - updatedAt
 
 
-### Sample Data: (User)
+### Sample Data: (User as Buyer)
 ```json
 {
   "_id":"ObjectId(“6473c6a50c56d0d40b9bb6a3)",  
   "password":"abrakadabra",
-  "role":"buyer",
+  "role": "buyer",
    "name":{
-      "firstName":"Mr. Babull"
-      "latName":"Bro"
+      "firstName": "Mr. Babull"
+      "lastName": "Bro"
     },
   "phoneNumber":"01711111111",
-  "address":"Chattogram",
-  "amount":30000  
+  "address": "Chattogram",
+  "budget":70000,
+  "income":0
 }
 ```
+
+### Sample Data: (User as Seller)
+```json
+{
+  "_id":"ObjectId(“6473c6a50c56d0d40b9bb6a3)",  
+  "password":"abrakadabra",
+  "role": "buyer",
+   "name":{
+      "firstName": "Mr. Babull"
+      "lastName": "Bro"
+    },
+  "phoneNumber":"01711111111",
+  "address": "Chattogram",
+  "budget":0,
+  "income":0
+}
 
 ### Cow Model:
 
@@ -118,15 +142,14 @@ Error Response Object Should include the following properties:
 ```
 
 
-
-
-
 ## Implement Create, Read, and Update Operations for Users Listing
 
 ### Create a new User 
 
  Route:  /api/v1/auth/signup (POST)
+ 
  Request body:
+ 
  ```json
  {
   "password":"abrakadabra",
@@ -136,14 +159,17 @@ Error Response Object Should include the following properties:
   "amount":30000  // saved money to buy the cow
 }
 ```
+ 
  Response: The newly created user object.
+ 
  Response Sample Pattern:
+
 ```json
  {
       "success": true, 
-      "statusCode":200 ,
-      "message":'Users created successfully',
-      "data": {} , 
+      "statusCode":200,
+      "message": "Users created successfully",
+      "data": {}, 
   }
 ```
 
@@ -151,48 +177,23 @@ Error Response Object Should include the following properties:
 ### Get All Users
 
  Route:  /api/v1/users (GET)
+ 
  Request body:
+ 
  Response: The user's array of objects.
+ 
  Response Sample Pattern:
+ 
 ```json
   {
       "success": true, 
-      "statusCode":200 ,
-      "message":"Users retrieved successfully",
-      "meta: {
-        "page": 3,
-        "limit": 10,
-        }
-      "data": [{}] , 
-  }
-```
-### Retrieve paginated and filtered cow listings: ( You do not need to implement pagination as we implemented, you can do as you want )
-
-Route:  /api/v1/cows?
-
-Query parameters:
-- page: The page number for pagination (e.g., ?page=1).
-- limit: The number of cow listings per page (e.g., ?limit=10).
-- sortBy: The field to sort the cow listings (e.g., ?sortBy=price).
-- sortOrder : The order of sorting, either 'asc' or 'desc' (e.g., ?sortOrder=asc).
-- minPrice: The minimum price for filtering (e.g., ?minPrice=1000).
-- maxPrice: The maximum price for filtering (e.g., ?maxPrice=5000).
-- location: The location for filtering (e.g., ?location=chattogram).
-- searchTerm: The search query string for searching cows (e.g., ?query=Dhaka). (Search Fields should be location, breed, and category) 
-
-Response: An array of cow listing objects that match the provided filters, limited to the specified page and limit.
-
-Response Sample Pattern:
-```json
-  {
-      "success": true, 
-      "statusCode":200 ,
-      "message":'Users retrieved successfully',
+      "statusCode":200,
+      "message": "Users retrieved successfully",
       "meta": {
         "page": 3,
         "limit": 10,
         }
-      "data: [{},{}], 
+      "data": [{}], 
   }
 ```
 
@@ -200,29 +201,37 @@ Response Sample Pattern:
 ### Get a Single User
 
 Route:  /api/v1/users/:id (GET)
+
 Request Param: :id
+
 Response: The user object.
+
 Response Sample Pattern:
+
 ```json
   {
       "success": true, 
-      "statusCode":400 ,
-      "message":'Uer updated successfully',
+      "statusCode":200,
+      "message": "User retrieved successfully",
       "data": {}, 
   }
   ```
-```
+
 ### Update a Single User
 
  Route:  /api/v1/users/:id (PATCH)
+ 
  Request Param: :id
+ 
  Response: 'User updated successfully;
+ 
  Response Sample Pattern:
+ 
 ```json
   {
       "success": true, 
-      "statusCode":400 ,
-      "message":"User updated successfully",
+      "statusCode":200,
+      "message": "User updated successfully",
       "data": {}, 
   }
   ```
@@ -230,14 +239,18 @@ Response Sample Pattern:
   ### Delete a User
 
  Route:  /api/v1/users/:id (PATCH)
+ 
  Request Param: :id
+ 
  Response: 'User deleted successfully;
+ 
  Response Sample Pattern:
+ 
 ```json
   {
       "success": true, 
-      "statusCode":200 ,
-      "message":"Uers deleted successfully",
+      "statusCode":200,
+      "message": "Uers deleted successfully",
       "data": {}, 
   }
 ```
@@ -296,6 +309,39 @@ Request body:
   ```
 
 
+### Retrieve paginated and filtered cow listings: ( You do not need to implement pagination as we implemented, you can do as you want )
+
+Route:  /api/v1/cows?
+
+Query parameters:
+- page: The page number for pagination (e.g., ?page=1).
+- limit: The number of cow listings per page (e.g., ?limit=10).
+- sortBy: The field to sort the cow listings (e.g., ?sortBy=price).
+- sortOrder : The order of sorting, either 'asc' or 'desc' (e.g., ?sortOrder=asc).
+- minPrice: The minimum price for filtering (e.g., ?minPrice=1000).
+- maxPrice: The maximum price for filtering (e.g., ?maxPrice=5000).
+- location: The location for filtering (e.g., ?location=chattogram).
+- searchTerm: The search query string for searching cows (e.g., ?query=Dhaka). (Search Fields should be location, breed, and category) 
+
+Response: An array of cow listing objects that match the provided filters, limited to the specified page and limit.
+
+Response Sample Pattern:
+```json
+  {
+      "success": true, 
+      "statusCode":200,
+      "message": "Cows retrieved successfully",
+      "meta": {
+        "page": 3,
+        "limit": 10,
+        }
+      "data": [{},{}], 
+  }
+```
+
+
+
+
 ### Get a Single Cow
 
 Route:  /api/v1/cows/:id (GET)
@@ -334,7 +380,7 @@ Response Sample Pattern:
   
   ### Delete a Cow
 
- Route:  /api/v1/cows/:id (PATCH)
+ Route:  /api/v1/cows/:id ( DELETE)
  
  Request Param: :id
  
@@ -396,7 +442,7 @@ Response Sample Pattern:
   {
       "success": true, 
       "statusCode":200,
-      "message": "Cow deleted successfully",
+      "message": "Orders retrieved successfully",
       "data": {}, 
   }
 ```
