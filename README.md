@@ -89,6 +89,7 @@ Error Response Object Should include the following properties:
   "budget":0,
   "income":0
 }
+```
 
 ### Cow Model:
 
