@@ -90,6 +90,7 @@ Error Response Object Should include the following properties:
 
  Route:  /api/v1/auth/signup (POST)
  Request body:
+ ```json
  {
   "password":"abrakadabra",
   "role": "buyer",
@@ -97,16 +98,17 @@ Error Response Object Should include the following properties:
   "address": "Chattogram",
   "amount":30000  // saved money to buy the cow
 }
+```
  Response: The newly created user object.
  Response Sample Pattern:
-
+```json
  {
       success: true, 
       statusCode:200 ,
       message:'Users created successfully',
       data: {} , 
   }
-
+```
 
            
 ### Get All Users
@@ -115,7 +117,7 @@ Error Response Object Should include the following properties:
  Request body:
  Response: The user's array of objects.
  Response Sample Pattern:
-
+```json
   {
       success: true, 
       statusCode:200 ,
@@ -126,15 +128,16 @@ Error Response Object Should include the following properties:
         }
       data: [{}] , 
   }
-
+```
 ### Retrieve paginated and filtered cow listings: ( You do not need to implement pagination as we implemented, you can do as you want )
 
-Route:  /api/v1/cows
+Route:  /api/v1/cows?
+
 Query parameters:
 - page: The page number for pagination (e.g., ?page=1).
 - limit: The number of cow listings per page (e.g., ?limit=10).
 - sortBy: The field to sort the cow listings (e.g., ?sortBy=price).
-- sortOrder: The order of sorting, either 'asc' or 'desc' (e.g., ?sortOrder=asc).
+- sortOrder : The order of sorting, either 'asc' or 'desc' (e.g., ?sortOrder=asc).
 - minPrice: The minimum price for filtering (e.g., ?minPrice=1000).
 - maxPrice: The maximum price for filtering (e.g., ?maxPrice=5000).
 - location: The location for filtering (e.g., ?location=chattogram).
@@ -143,7 +146,7 @@ Query parameters:
 Response: An array of cow listing objects that match the provided filters, limited to the specified page and limit.
 
 Response Sample Pattern:
-
+```json
   {
       success: true, 
       statusCode:200 ,
@@ -154,7 +157,7 @@ Response Sample Pattern:
         }
       data: [{}] , 
   }
-
+```
 
 
 ### Get a Single User
@@ -163,28 +166,28 @@ Route:  /api/v1/users/:id (GET)
 Request Param: :id
 Response: The user object.
 Response Sample Pattern:
-
+```json
   {
       success: true,  
       statusCode:200 ,
       message:'User retrieved successfully',
       data: {} , 
   }
-
+```
 ### Update a Single User
 
  Route:  /api/v1/users/:id (PATCH)
  Request Param: :id
  Response: 'User updated successfully;
  Response Sample Pattern:
-
+```json
   {
       success: true, 
       statusCode:400 ,
       message:'Uer updated successfully',
       data: {} , 
   }
-  
+  ```
   
   ### Delete a User
 
@@ -192,26 +195,22 @@ Response Sample Pattern:
  Request Param: :id
  Response: 'User deleted successfully;
  Response Sample Pattern:
-
+```json
   {
       success: true, 
       statusCode:200 ,
       message:'Uers deleted successfully',
       data: {} , 
   }
-
+```
 
 ### Implement Create, Read, Update, and Delete Operations for COW listings.
-
-
-
-### Create a new cow listing:
-
 
 ### Create a New Cow
 
  Route:  /api/v1/cows (POST)
  Request body:
+```json
  {
   "_id":"ObjectId(“6473c6a50c56d0d40b9bb6a3)",  
   "name": " Cow",
@@ -219,17 +218,17 @@ Response Sample Pattern:
   "price": 5000,
   ..............
 }
+```
  Response: The newly created cow object.
  Response Sample Pattern:
-
+```json
  {
       success: true, 
       statusCode:200 ,
       message:'Cow created successfully',
       data: {} , 
   }
-
-
+```
            
 ### Get All Cows
 
@@ -237,7 +236,7 @@ Response Sample Pattern:
  Request body:
  Response: The cows array of objects.
  Response Sample Pattern:
-
+```json
   {
       success: true, 
       statusCode:200 ,
@@ -248,6 +247,7 @@ Response Sample Pattern:
         }
       data: [{}] , 
   }
+  ```
 
 
 ### Get a Single Cow
@@ -256,28 +256,28 @@ Route:  /api/v1/cows/:id (GET)
 Request Param: :id
 Response: The cow object.
 Response Sample Pattern:
-
+``json
   {
       success: true,  
       statusCode:200 ,
       message:'Cow retrieved successfully',
       data: {} , 
   }
-
+```
 ### Update a Single Cow
 
  Route:  /api/v1/cow/:id (PATCH)
  Request Param: :id
  Response: 'Cow updated successfully;
  Response Sample Pattern:
-
+```json
   {
       success: true, 
       statusCode:400 ,
       message:'Cow updated successfully',
       data: {} , 
   }
-  
+  ```
   
   ### Delete a Cow
 
@@ -285,24 +285,27 @@ Response Sample Pattern:
  Request Param: :id
  Response: 'Cows deleted successfully;
  Response Sample Pattern:
-
+```json
   {
       success: true, 
       statusCode:200 ,
       message:'Cow deleted successfully',
       data: {} , 
   }
-
+```
      
 ### Bonus:  Implement Create, Read Operations for Order History Listings.
 
 Route:  /api/v1/orders  (POST)
-Request body:{
+Request body:
+```json
 {
+
   "cow":"ObjectId(“6473c6a50c56d0d40b9bb6a3)", // cow reference _id
   "buyer":"ObjectId(“6473c6a50c56d0d40b9bb6a3)", // user reference  _id
 }
-}
+```
+
 Response: The  newly created order object.
 
 implement a transactional operation for buying a cow.  When a user requests to buy a cow, simulate a transaction process without involving an actual payment gateway. Upon successful transaction simulation, update the cow's status as sold, transfer money from buyer to seller account, and provide appropriate response messages.
