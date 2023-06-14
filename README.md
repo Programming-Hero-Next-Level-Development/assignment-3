@@ -47,6 +47,23 @@ Error Response Object Should include the following properties:
 - createdAt
 - updatedAt
 
+
+### Sample Data: (User)
+```json
+{
+  "_id":"ObjectId(“6473c6a50c56d0d40b9bb6a3)",  
+  "password":"abrakadabra",
+  "role":"buyer",
+   "name":{
+      firstName:"Mr. Babull"
+      latName:"Bro"
+    },
+  "phoneNumber":"01711111111",
+  "address":"Chattogram",
+  "amount":30000  
+}
+```
+
 ### Cow Model:
 
 -name: The name of the cow.
@@ -83,8 +100,28 @@ Error Response Object Should include the following properties:
 
 -seller: A reference ID that identifies the seller of the cow, allowing for tracking and association with the seller's information.
 
+### Sample Data: (Cow)
 
-### Implement Create, Read, and Update Operations for Users Listing
+```json
+{
+  "name": "Bella",
+  "age": 4,
+  "price": 5000,
+  "location": "Dhaka",
+  "breed": "Brahman",
+  "weight": 400,
+  "label": "For sale",
+  "category": "Beef",
+  "seller": "609c17fc1281bb001f523456"
+}
+
+```
+
+
+
+
+
+## Implement Create, Read, and Update Operations for Users Listing
 
 ### Create a new User 
 
@@ -204,7 +241,7 @@ Response Sample Pattern:
   }
 ```
 
-### Implement Create, Read, Update, and Delete Operations for COW listings.
+## Implement Create, Read, Update, and Delete Operations for COW listings.
 
 ### Create a New Cow
 
@@ -331,37 +368,8 @@ Request body:
 Response: The orders array of object.
 
 
-### Sample Data: (User)
-```json
-{
-  "_id":"ObjectId(“6473c6a50c56d0d40b9bb6a3)",  
-  "password":"abrakadabra",
-  "role":"buyer",
-   "name":{
-      firstName:"Mr. Babull"
-      latName:"Bro"
-    },
-  "phoneNumber":"01711111111",
-  "address":"Chattogram",
-  "amount":30000  
-}
-```
 
-### Sample Data: (Cow)
 
-```json
-{
-  "name": "Bella",
-  "age": 4,
-  "price": 5000,
-  "location": "Dhaka",
-  "breed": "Brahman",
-  "weight": 400,
-  "label": "For sale",
-  "category": "Beef",
-  "seller": "609c17fc1281bb001f523456"
-}
 
-```
 
 
